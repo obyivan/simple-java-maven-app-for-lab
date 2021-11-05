@@ -18,10 +18,10 @@ public class App
     }
 
     public void infiniteLoopUsingDoWhile() {
-    do {
+    while (true) {
          System.out.println("Running while loop");
-    	} while (true);
-    }
+    	} 
+    }    
 }
 
     class HelloWorld {
