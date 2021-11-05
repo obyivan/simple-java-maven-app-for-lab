@@ -19,8 +19,13 @@ public class App
 
     public void infiniteLoopUsingDoWhile() {
     do {
-        // do something
+         System.out.println("Running while loop");
     } while (true);
 	}
 
+	class HelloWorld {
+		public static void main(String[] args){
+			System.out.println("Hello world");
+		}
+	}
 }
