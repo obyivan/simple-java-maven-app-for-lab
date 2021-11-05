@@ -20,12 +20,13 @@ public class App
     public void infiniteLoopUsingDoWhile() {
     do {
          System.out.println("Running while loop");
-    } while (true);
-	}
+    	} while (true);
+    }
+}
 
-	class HelloWorld {
-		public static void main(String[] args){
+    class HelloWorld {
+	public static void main(String[] args){
 			System.out.println("Hello world");
 		}
 	}
-}
+
