@@ -5,7 +5,7 @@ package com.mycompany.app;
  */
 public class App
 {	
-    private final String message = "Hello World!";
+    private final String message = "Hello World!"; // This is a trailing comment that can be very very long
 
     public App() {}
 
@@ -26,7 +26,7 @@ public class App
 
     class HelloWorld {
 	public static void main(String[] args){
-			System.out.println("Hello world");
+			System.out.println("Hello world"); // This is a trailing comment that can be very very long
 		}
 	}
 
