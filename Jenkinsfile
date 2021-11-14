@@ -36,8 +36,12 @@ pipeline {
 
   }
   post {
+    success {
+      emailext(body: '', to: "${EMAIL_TO}", subject: 'Build success in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER')
+    }
+
     failure {
-      echo "Failed stage name: ${FAILED_STAGE}"
+      emailext(body: '', to: "${EMAIL_TO}", subject: 'Build failed in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER')
     }
 
   }
