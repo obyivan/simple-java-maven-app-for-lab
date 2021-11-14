@@ -35,6 +35,9 @@ pipeline {
     }
 
   }
+  environment {
+    EMAIL_TO = 'obyivan@gmail.com'
+  }
   post {
     success {
       emailext(body: '', to: "${EMAIL_TO}", subject: 'Build success in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER')
