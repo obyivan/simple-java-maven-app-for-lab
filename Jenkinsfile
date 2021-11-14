@@ -1,10 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('Ok') {
+    stage('Git') {
       steps {
         echo 'Ok'
         git(url: 'git@github.com:obyivan/simple-java-maven-app-for-lab.git', branch: 'ipokaliuk', credentialsId: 'git-ipokaliuk-ssh')
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'mvn -f pom.xml package'
       }
     }
 
