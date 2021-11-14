@@ -1,24 +1,44 @@
 pipeline {
-  agent any
+  agent {
+    label 'master'
+  }
   stages {
-    stage('Git') {
+    stage('Stage 1') {
       steps {
-        echo 'Ok'
-        git(url: 'git@github.com:obyivan/simple-java-maven-app-for-lab.git', branch: 'ipokaliuk', credentialsId: 'git-ipokaliuk-ssh')
+        script {
+          FAILED_STAGE=env.STAGE_NAME
+          echo "stage 1"
+        }
+
       }
     }
 
-    stage('Build') {
+    stage('Stage 2') {
       steps {
-        sh 'ls -la'
-        sh 'mvn package'
-        emailext(attachLog: true, body: 'This is the extended email test', subject: 'This is the extended email test', to: 'obyivan@gmail.com')
+        script {
+          FAILED_STAGE=env.STAGE_NAME
+          echo "stage 2"
+          error "failed for some reason."
+        }
+
+      }
+    }
+
+    stage('Stage 3') {
+      steps {
+        script {
+          FAILED_STAGE=env.STAGE_NAME
+          echo "stage 3"
+        }
+
       }
     }
 
   }
-  tools {
-    maven 'mvn3'
-    jdk 'openjdk8'
+  post {
+    failure {
+      echo "Failed stage name: ${FAILED_STAGE}"
+    }
+
   }
 }
