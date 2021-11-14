@@ -44,7 +44,7 @@ pipeline {
     }
 
     failure {
-      emailext(attachLog: true, body: "Failed build in project ${ROJECT_NAME} with number build ${BUILD_NUMBER}\n Failed stage name on ${FAILED_STAGE}", to: "${EMAIL_TO}", subject: 'Failed: $PROJECT_NAME - #$BUILD_NUMBER')
+      emailext(attachLog: true, body: "Failed build in project ${ROJECT_NAME} with number build ${BUILD_NUMBER} Failed stage name on ${FAILED_STAGE}", to: "${EMAIL_TO}", subject: 'Failed: $PROJECT_NAME - #$BUILD_NUMBER')
     }
 
   }
