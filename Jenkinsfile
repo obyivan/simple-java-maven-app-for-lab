@@ -12,6 +12,7 @@ pipeline {
       steps {
         sh 'ls -la'
         sh 'mvn package'
+        emailext(attachLog: true, body: 'This is the extended email test', subject: 'This is the extended email test', to: 'obyivan@gmail.com')
       }
     }
 
