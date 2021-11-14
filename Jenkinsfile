@@ -40,7 +40,7 @@ pipeline {
   }
   post {
     success {
-      emailext(body: '', to: "${EMAIL_TO}", subject: 'Build success in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER')
+      emailext(attachLog: true, body: '', to: "${EMAIL_TO}", subject: 'Build success in Jenkins: $PROJECT_NAME - #$BUILD_NUMBER')
     }
 
     failure {
