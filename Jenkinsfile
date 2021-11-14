@@ -10,10 +10,15 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'mvn -f pom.xml package'
+        sh 'ls -la'
+        sh 'mvn package'
       }
     }
 
+  }
+  tools {
+    maven 'mvn3'
+    jdk 'openjdk8'
   }
   post {
     always {
